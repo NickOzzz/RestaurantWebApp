@@ -1,0 +1,740 @@
+::-webkit-scrollbar {
+    width: 0px;
+    background: transparent; /* make scrollbar transparent */
+}
+body{
+background-color: lightgray;
+overflow: hidden
+}
+h1{
+    font-family: 'Helvetica';
+    color: white;
+}
+img {
+    -webkit-user-drag: none;
+    -moz-user-select: none;
+    user-drag: none;
+    user-select: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+}
+.title{
+    position: absolute;
+    background-color: rgb(60, 60, 60);
+    top: -1.2%;
+    left: 0%;
+    height: 12%;
+    width: 100%;
+}
+#title-menu{
+    top: 28%;
+    left: 85%;
+    font-size: 125%;
+    position: absolute;
+    cursor: pointer;
+}
+#title-phone{
+    top: 30%;
+    left: 43%;
+    font-size: 100%;
+    position: absolute;
+    cursor: pointer;
+}
+#title-address{
+    top: 30%;
+    left: 15.5%;
+    font-size: 90%;
+    position: absolute;
+    cursor: pointer;
+}
+#title-instlink{
+    top: 30%;
+    left: 58%;
+    font-size: 100%;
+    position: absolute;
+    cursor: pointer;
+}
+#title-icon{
+    top: 10%;
+    left: 7%;
+    width: 8%;
+    height: 90%;
+    position: absolute;
+}
+#title-instlink:hover{
+color: red;
+}
+#title-phone:hover{
+color: red;
+}
+#title-address:hover{
+color: red;
+}
+#title-menu:hover{
+color: red;
+}
+#title-instagram{
+    top: 42%;
+    left: 70%;
+    width: 1.5%;
+    height: 20%;
+    position: absolute;
+}
+#title-whatsapp{
+    top: 38%;
+    left: 53.8%;
+    width: 2%;
+    height: 27%;
+    position: absolute;
+}
+#mainCard{
+border-radius: 5px;
+position: absolute;
+left: 14.5%;
+top: 16%;
+height: 80%;
+width: 70%;
+background-color: rgb(60, 60, 60);
+box-shadow: 1px 1px 15px 2px #383838;
+}
+#innerCard{
+position: absolute;
+height: 75%;
+width: 100%;
+top: 5%;
+overflow-y: hidden;
+}
+#item-name-box{
+position: absolute;
+left: 29%;
+width: 25%;
+height: 80%;
+top: 7%;
+overflow-x: scroll;
+-ms-overflow-style: none;
+scrollbar-width: none;
+}
+#item-name-box::-webkit-scrollbar {
+  display: none;
+}
+#itemCard{
+width: 90%;
+position: relative;
+height: 18%;
+left: 5%;
+top: 5%;
+border-bottom-color: white;
+border-bottom: solid;
+border-bottom-style : ridge;
+}
+#item-image{
+position: absolute;
+width: 15%;
+height: 95%;
+left: 2%;
+top: 0%;
+border-radius: 10px;
+}
+#item-name{
+position: absolute;
+left: 0%;
+font-size: 20px;
+border-radius: 10px;
+}
+#item-price{
+position: absolute;
+width: 10%;
+left: 60%;
+top: 15%;
+font-size: 20px;
+height: 100%;
+border-radius: 10px;
+}
+#add-item{
+position: absolute;
+width: 5%;
+left: 90%;
+top: 30%;
+font-size: 20px;
+height: 35%;
+border-radius: 40px;
+background-color: red;
+color: white;
+}
+#remove-item{
+position: absolute;
+width: 5%;
+left: 75%;
+top: 30%;
+font-size: 20px;
+height: 35%;
+border-radius: 40px;
+background-color: red;
+color: white;
+}
+#item-counter{
+position: absolute;
+left: 84%;
+top: 7%;
+font-size: 20px;
+font-size: 160%;
+border-radius: 10px;
+}
+#order-button{
+position: absolute;
+top:88%;
+width: 10%;
+height: 7%;
+border-radius: 100px;
+background-color: red;
+color: white;
+left: 80%;
+cursor: pointer;
+font-size: 12px;
+}
+#total-price{
+position: absolute;
+top:86%;
+left: 65%;
+font-size: 160%;
+}
+#empty-cart-message{
+position: absolute;
+font-size: 150%;
+top: 38%;
+left: 39%;
+}
+#check-delivery{
+position:absolute;
+top: 90%;
+left: 13%;
+}
+#check-self{
+position:absolute;
+top: 90%;
+left: 38%;
+}
+#delivery-text{
+position:absolute;
+top: 88%;
+left: 16%;
+font-size: 105%;
+}
+#self-text{
+position:absolute;
+top: 88%;
+left: 41%;
+font-size: 105%;
+}
+#delivery-price{
+position: absolute;
+top: 93%;
+left: 62.5%;
+font-size: 100%;
+}
+#fading-bg{
+visibility: hidden;
+background: rgba(0, 0, 0, 0.5);
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+}
+#pop-up-confirmation-delivery, #pop-up-confirmation-self{
+background-color: rgb(60, 60, 60);
+width: 40%;
+height: 65%;
+position: absolute;
+top: 20%;
+left: 29%;
+border-radius: 5px;
+}
+#note-delivery{
+font-size: 100%;
+position: absolute;
+top: 50%;
+left: 5%;
+}
+#warning-message{
+font-size: 100%;
+position: absolute;
+top: 63%;
+left: 18%;
+color: red;
+visibility: hidden;
+}
+#warning-message2{
+font-size: 100%;
+position: absolute;
+top: 69%;
+left: 18%;
+color: red;
+visibility: hidden;
+}
+#cancel-delivery-button, #cancel-self-button{
+background-color: red;
+color: white;
+position: absolute;
+left: 10%;
+top: 83%;
+border-radius: 50px;
+width: 20%;
+height: 8%;
+}
+#order-delivery-button, #order-self-button{
+background-color: red;
+color: white;
+position: absolute;
+left: 70%;
+top: 83%;
+border-radius: 50px;
+width: 20%;
+height: 8%;
+}
+#final-price{
+position: absolute;
+left: 65%;
+top: 70%;
+font-size: 140%;
+}
+#final-price2{
+position: absolute;
+left: 65%;
+top: 72%;
+font-size: 140%;
+}
+#input-username{
+border-radius: 5px;
+position: absolute;
+top: 10%;
+left: 9%;
+width: 80%;
+height: 7%;
+}
+#input-usephone{
+border-radius: 5px;
+position: absolute;
+top: 22.5%;
+left: 9%;
+width: 80%;
+height: 7%;
+}
+#input-username2{
+border-radius: 5px;
+position: absolute;
+top: 10%;
+left: 9%;
+width: 80%;
+height: 8%;
+}
+#input-usephone2{
+border-radius: 5px;
+position: absolute;
+top: 27%;
+left: 9%;
+width: 80%;
+height: 8%;
+}
+#input-useplace{
+border-radius: 5px;
+position: absolute;
+top: 35%;
+left: 9%;
+width: 80%;
+height: 7%;
+}
+#note-self{
+position: absolute;
+font-size: 100%;
+left: 5%;
+top: 50%;
+}
+@media screen and (max-width: 1300px){
+#title-phone{
+    top: 50%;
+    left: 46%;
+    font-size: 90%;
+    position: absolute;
+    cursor: pointer;
+}
+#title-instlink{
+    top: 30%;
+    left: 46%;
+    font-size: 90%;
+    position: absolute;
+    cursor: pointer;
+}
+#title-instagram{
+    top: 41%;
+    left: 58%;
+    width: 2%;
+    height: 16%;
+    position: absolute;
+}
+#title-whatsapp{
+    top: 60%;
+    left: 57%;
+    width: 2%;
+    height: 18%;
+    position: absolute;
+}
+}
+@media screen and (max-width: 1170px){
+#title-instagram{
+    top: 41%;
+    left: 59%;
+    width: 2%;
+    height: 16%;
+    position: absolute;
+}
+#title-whatsapp{
+    top: 60%;
+    left: 57.5%;
+    width: 2%;
+    height: 18%;
+    position: absolute;
+}
+}
+@media screen and (max-width: 1120px){
+#title-instagram{
+    top: 40%;
+    left: 59%;
+    width: 2%;
+    height: 16%;
+    position: absolute;
+}
+#title-whatsapp{
+    top: 60%;
+    left: 57.5%;
+    width: 2%;
+    height: 18%;
+    position: absolute;
+}
+}
+@media screen and (max-width: 1050px){
+#title-instagram{
+    top: 40%;
+    left: 60%;
+    width: 2%;
+    height: 16%;
+    position: absolute;
+}
+#title-whatsapp{
+    top: 60%;
+    left: 58%;
+    width: 2%;
+    height: 18%;
+    position: absolute;
+}
+}
+@media screen and (max-width: 1000px){
+#title-instagram{
+    top: 40%;
+    left: 62%;
+    width: 2%;
+    height: 16%;
+    position: absolute;
+}
+#title-whatsapp{
+    top: 60%;
+    left: 60%;
+    width: 2%;
+    height: 18%;
+    position: absolute;
+}
+}
+@media screen and (max-width: 900px){
+#title-instagram{
+    top: 40%;
+    left: 64%;
+    width: 2%;
+    height: 16%;
+    position: absolute;
+}
+#title-whatsapp{
+    top: 60%;
+    left: 62%;
+    width: 2%;
+    height: 18%;
+    position: absolute;
+}
+}
+@media screen and (max-width: 770px){
+#title-icon{
+    top: 23%;
+    left: 2%;
+    width: 12%;
+    height: 60%;
+    position: absolute;
+}
+#title-address{
+    top: 30%;
+    left: 15.5%;
+    font-size: 70%;
+    position: absolute;
+    cursor: pointer;
+}
+#title-instagram{
+    top: 36%;
+    left: 66%;
+    width: 1.5%;
+    height: 14%;
+    position: absolute;
+}
+#title-whatsapp{
+    top: 56%;
+    left: 64%;
+    width: 1.5%;
+    height: 16%;
+    position: absolute;
+}
+#title-phone{
+    top: 50%;
+    left: 51%;
+    font-size: 65%;
+    position: absolute;
+    cursor: pointer;
+}
+#title-instlink{
+    top: 30%;
+    left: 51%;
+    font-size: 65%;
+    position: absolute;
+    cursor: pointer;
+}
+}
+@media screen and (max-width: 670px){
+#title-instagram{
+    top: 37%;
+    left: 81%;
+    width: 3%;
+    height: 14%;
+    position: absolute;
+}
+#title-whatsapp{
+    top: 58%;
+    left: 79%;
+    width: 3%;
+    height: 16%;
+    position: absolute;
+}
+#title-menu{
+    top: 39%;
+    left: 86%;
+    font-size: 60%;
+    position: absolute;
+    cursor: pointer;
+}
+#title-cart{
+    top: 38%;
+    left: 91%;
+    width: 8%;
+    height: 35%;
+    cursor: pointer;
+    position: absolute;
+}
+#title-cart-counter{
+    top: 48%;
+    left: 91%;
+    font-size: 80%;
+    position: absolute;
+}
+#title-address{
+    top: 35%;
+    left: 15%;
+    font-size: 42%;
+    position: absolute;
+    cursor: pointer;
+}
+#title-phone{
+    top: 54%;
+    left: 57%;
+    font-size: 48%;
+    position: absolute;
+    cursor: pointer;
+}
+#title-instlink{
+    top: 30%;
+    left: 57%;
+    font-size: 48%;
+    position: absolute;
+    cursor: pointer;
+}
+#item-image{
+position: absolute;
+width: 25%;
+height: 60%;
+left: 1%;
+top: 15%;
+border-radius: 10px;
+}
+#item-name{
+position: absolute;
+left: 0%;
+top: 7%;
+font-size: 12px;
+border-radius: 10px;
+}
+#item-price{
+position: absolute;
+width: 10%;
+left: 60.5%;
+top: 15%;
+font-size: 13px;
+height: 100%;
+border-radius: 10px;
+}
+#add-item{
+position: absolute;
+width: 8.5%;
+left: 94%;
+top: 28%;
+font-size: 10px;
+height: 30%;
+border-radius: 40px;
+background-color: red;
+color: white;
+}
+#remove-item{
+position: absolute;
+width: 8.5%;
+left: 75%;
+top: 28%;
+font-size: 10px;
+height: 30%;
+border-radius: 40px;
+background-color: red;
+color: white;
+}
+#item-counter{
+position: absolute;
+left: 86%;
+top: 13%;
+font-size: 100%;
+border-radius: 10px;
+}
+#empty-cart-message{
+position: absolute;
+font-size: 80%;
+top: 38%;
+left: 33%;
+}
+#check-delivery{
+position:absolute;
+top: 89%;
+left: 9%;
+}
+#check-self{
+position:absolute;
+top: 94%;
+left: 9%;
+}
+#delivery-text{
+position:absolute;
+top: 88%;
+left: 19%;
+font-size: 70%;
+}
+#self-text{
+position:absolute;
+top: 93%;
+left: 19%;
+font-size: 70%;
+}
+#delivery-price{
+position: absolute;
+top: 84.5%;
+left: 64%;
+font-size: 60%;
+}
+#order-button{
+position: absolute;
+top:92%;
+width: 30%;
+height: 6.5%;
+border-radius: 100px;
+background-color: red;
+color: white;
+left: 62%;
+cursor: pointer;
+font-size: 10%;
+}
+#total-price{
+position: absolute;
+top: 85%;
+left: 65%;
+font-size: 85%;
+}
+#pop-up-confirmation-delivery, #pop-up-confirmation-self{
+background-color: rgb(60, 60, 60);
+width: 70%;
+height: 60%;
+position: absolute;
+top: 20%;
+left: 15%;
+border-radius: 5px;
+}
+#cancel-delivery-button, #cancel-self-button{
+background-color: red;
+color: white;
+position: absolute;
+left: 10%;
+top: 88.5%;
+border-radius: 50px;
+width: 30%;
+height: 8%;
+font-size: 60%;
+}
+#order-delivery-button, #order-self-button{
+background-color: red;
+color: white;
+position: absolute;
+left: 60%;
+top: 88.5%;
+border-radius: 50px;
+width: 30%;
+height: 8%;
+font-size: 60%;
+}
+#final-price{
+position: absolute;
+left: 50%;
+top: 78%;
+font-size: 100%;
+}
+#final-price2{
+position: absolute;
+left: 50%;
+top: 78%;
+font-size: 100%;
+}
+#warning-message{
+font-size: 90%;
+position: absolute;
+top: 69%;
+left: 18%;
+color: red;
+visibility: hidden;
+}
+#warning-message2{
+font-size: 90%;
+position: absolute;
+top: 69%;
+left: 18%;
+color: red;
+visibility: hidden;
+}
+#iframe-mover{
+position: absolute;
+left: 20%;
+top: 33%;
+visibility: hidden;
+}
+#note-self{
+position: absolute;
+font-size: 100%;
+left: 5%;
+top: 50%;
+}
+}

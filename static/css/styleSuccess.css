@@ -1,0 +1,322 @@
+::-webkit-scrollbar {
+    width: 0px;
+    background: transparent; /* make scrollbar transparent */
+}
+    body{
+background-color: lightgray;
+overflow: hidden
+}
+h1{
+    font-family: 'Helvetica';
+    color: white;
+}
+img {
+    -webkit-user-drag: none;
+    -moz-user-select: none;
+    user-drag: none;
+    user-select: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+}
+.title{
+    position: absolute;
+    background-color: rgb(60, 60, 60);
+    top: -1.2%;
+    left: 0%;
+    height: 12%;
+    width: 100%;
+}
+#title-menu{
+    top: 28%;
+    left: 85%;
+    font-size: 125%;
+    position: absolute;
+    cursor: pointer;
+}
+#title-phone{
+    top: 30%;
+    left: 43%;
+    font-size: 100%;
+    position: absolute;
+    cursor: pointer;
+}
+#title-address{
+    top: 30%;
+    left: 22%;
+    font-size: 90%;
+    position: absolute;
+    cursor: pointer;
+}
+#title-instlink{
+    top: 30%;
+    left: 58%;
+    font-size: 100%;
+    position: absolute;
+    cursor: pointer;
+}
+#title-icon{
+    top: 10%;
+    left: 13%;
+    width: 8%;
+    height: 90%;
+    position: absolute;
+}
+#title-instagram{
+    top: 42%;
+    left: 70%;
+    width: 1.5%;
+    height: 20%;
+    position: absolute;
+}
+#title-whatsapp{
+    top: 38%;
+    left: 53.8%;
+    width: 2%;
+    height: 27%;
+    position: absolute;
+}
+#title-instlink:hover{
+color: red;
+}
+#title-phone:hover{
+color: red;
+}
+#title-address:hover{
+color: red;
+}
+#title-menu:hover{
+color: red;
+}
+#mainCard{
+border-radius: 5px;
+position: absolute;
+left: 14.5%;
+top: 16%;
+height: 80%;
+width: 70%;
+background-color: rgb(60, 60, 60);
+}
+#success-message{
+font-size: 150%;
+position: absolute;
+top: 40%;
+left: 24%;
+}
+@media screen and (max-width: 1300px){
+#title-phone{
+    top: 50%;
+    left: 46%;
+    font-size: 90%;
+    position: absolute;
+    cursor: pointer;
+}
+#title-instlink{
+    top: 30%;
+    left: 46%;
+    font-size: 90%;
+    position: absolute;
+    cursor: pointer;
+}
+#title-instagram{
+    top: 41%;
+    left: 58%;
+    width: 2%;
+    height: 16%;
+    position: absolute;
+}
+#title-whatsapp{
+    top: 60%;
+    left: 57%;
+    width: 2%;
+    height: 18%;
+    position: absolute;
+}
+}
+@media screen and (max-width: 1170px){
+#title-instagram{
+    top: 41%;
+    left: 59%;
+    width: 2%;
+    height: 16%;
+    position: absolute;
+}
+#title-whatsapp{
+    top: 60%;
+    left: 57.5%;
+    width: 2%;
+    height: 18%;
+    position: absolute;
+}
+}
+@media screen and (max-width: 1120px){
+#title-instagram{
+    top: 40%;
+    left: 59%;
+    width: 2%;
+    height: 16%;
+    position: absolute;
+}
+#title-whatsapp{
+    top: 60%;
+    left: 57.5%;
+    width: 2%;
+    height: 18%;
+    position: absolute;
+}
+}
+@media screen and (max-width: 1050px){
+#title-instagram{
+    top: 40%;
+    left: 60%;
+    width: 2%;
+    height: 16%;
+    position: absolute;
+}
+#title-whatsapp{
+    top: 60%;
+    left: 58%;
+    width: 2%;
+    height: 18%;
+    position: absolute;
+}
+}
+@media screen and (max-width: 1000px){
+#title-instagram{
+    top: 40%;
+    left: 62%;
+    width: 2%;
+    height: 16%;
+    position: absolute;
+}
+#title-whatsapp{
+    top: 60%;
+    left: 60%;
+    width: 2%;
+    height: 18%;
+    position: absolute;
+}
+}
+@media screen and (max-width: 900px){
+#title-instagram{
+    top: 40%;
+    left: 64%;
+    width: 2%;
+    height: 16%;
+    position: absolute;
+}
+#title-whatsapp{
+    top: 60%;
+    left: 62%;
+    width: 2%;
+    height: 18%;
+    position: absolute;
+}
+}
+@media screen and (max-width: 770px){
+#title-icon{
+    top: 23%;
+    left: 2%;
+    width: 12%;
+    height: 60%;
+    position: absolute;
+}
+#title-address{
+    top: 30%;
+    left: 15.5%;
+    font-size: 70%;
+    position: absolute;
+    cursor: pointer;
+}
+#title-instagram{
+    top: 36%;
+    left: 66%;
+    width: 1.5%;
+    height: 14%;
+    position: absolute;
+}
+#title-whatsapp{
+    top: 56%;
+    left: 64%;
+    width: 1.5%;
+    height: 16%;
+    position: absolute;
+}
+#title-phone{
+    top: 50%;
+    left: 51%;
+    font-size: 65%;
+    position: absolute;
+    cursor: pointer;
+}
+#title-instlink{
+    top: 30%;
+    left: 51%;
+    font-size: 65%;
+    position: absolute;
+    cursor: pointer;
+}
+}
+@media screen and (max-width: 670px){
+#title-instagram{
+    top: 37%;
+    left: 81%;
+    width: 3%;
+    height: 14%;
+    position: absolute;
+}
+#title-whatsapp{
+    top: 58%;
+    left: 79%;
+    width: 3%;
+    height: 16%;
+    position: absolute;
+}
+#title-menu{
+    top: 39%;
+    left: 86%;
+    font-size: 60%;
+    position: absolute;
+    cursor: pointer;
+}
+#title-cart{
+    top: 38%;
+    left: 91%;
+    width: 8%;
+    height: 35%;
+    cursor: pointer;
+    position: absolute;
+}
+#title-cart-counter{
+    top: 48%;
+    left: 91%;
+    font-size: 80%;
+    position: absolute;
+}
+#title-address{
+    top: 35%;
+    left: 15%;
+    font-size: 42%;
+    position: absolute;
+    cursor: pointer;
+}
+#title-phone{
+    top: 54%;
+    left: 57%;
+    font-size: 48%;
+    position: absolute;
+    cursor: pointer;
+}
+#title-instlink{
+    top: 30%;
+    left: 57%;
+    font-size: 48%;
+    position: absolute;
+    cursor: pointer;
+}
+#success-message{
+font-size: 70%;
+position: absolute;
+top: 40%;
+left: 24%;
+}
+}

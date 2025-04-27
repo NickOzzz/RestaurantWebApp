@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+{% load static %}
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/styleSuccess.css' %}" />
+    <link rel="shortcut icon" href="{% static 'assets/logo_title.ico' %}">
+    <title>Xочу шашлык 39</title>
+</head>
+<!-- Title and its contents -->
+<body onload="clearAllCookies()">
+    <div class="title">
+        <a href="https://www.google.com/maps/place/Severny+Island/@75.0555611,56.086892,6z/data=!3m1!4b1!4m6!3m5!1s0x44e50d7f6d2e3031:0xecc7fac831664c3!8m2!3d75.3846993!4d59.1723222!16zL20vMDM0cno3?entry=ttu&g_ep=EgoyMDI1MDQyMy4wIKXMDSoASAFQAw%3D%3D">
+            <h1 id="title-address">Wall street,<br> New York</h1>
+        </a>
+        <a href="tel:+1 202-918-2132">
+            <h1 id="title-phone">+1 202-918-2132</h1>
+        </a>
+        <a href="https://www.instagram.com/instagram/">
+            <h1 id="title-instlink">@instagram</h1>
+        </a>
+        <img src="{% static 'assets/instagram.png'%}" id="title-instagram">
+        <img src="{% static 'assets/whatsapp.png'%}" id="title-whatsapp">
+        <a href="/"><img src="{% static 'assets/logo_title.png' %}" id="title-icon"></a>
+        <a href="/">
+            <h1 id="title-menu">МЕНЮ</h1>
+        </a>
+    </div>
+    <!-- Success message card -->
+    <div id="mainCard">
+        <h1 id="success-message">
+            Ваш заказ был успешно отправлен :)
+        </h1>
+    </div>
+</body>
+<script type="text/javascript" src="{% static 'js/success.js' %}">
+</script>
+
+</html>
