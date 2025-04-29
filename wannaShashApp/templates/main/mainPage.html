@@ -10,8 +10,8 @@
     <title>Xочу шашлык 39</title>
 </head>
 
-<body onload="initApp('{{foods1count}}', '{{foods2count}}', '{{foods3count}}',
-               '{{foods4count}}', '{{spacings.SpacingBox2}}', '{{spacings.SpacingBox3}}', '{{spacings.SpacingBox4}}')">
+<body onload="initApp('{{meat_assortments_count}}', '{{shashlik_on_coal_count}}', '{{assortments_count}}',
+               '{{shawerma_count}}', '{{spacings.SpacingBox2}}', '{{spacings.SpacingBox3}}', '{{spacings.SpacingBox4}}')">
     <!-- Introduction picture -->
     <div id="intro-section">
     <img id="intro-img" src="{% static 'assets/shashlik-intro.png' %}">
@@ -23,13 +23,13 @@
         </div>
     </div>
     <!-- Shashlik na ugliach box -->
-    {% if foods1|length > 0 %}
+    {% if meat_assortments|length > 0 %}
     <div id="food-section-holder1">
         <h1 id="food-section1">Мясной набор</h1>
     </div>
     <div id="food-box1">
         <!-- For each Shashlik na ugliach display box with contents -->
-        {% for food in foods1 %}
+        {% for food in meat_assortments %}
         <div id="food-card">
             <h1 id="food-name">{{ food.Name }}</h1>
             <div id="food-description-box">
@@ -43,13 +43,13 @@
     </div>
     {% endif %}
     <!-- Assorti box -->
-    {% if foods2|length > 0 %}
+    {% if shashlik_on_coal|length > 0 %}
     <div id="food-section-holder2">
         <h1 id="food-section2">Шашлык на углях</h1>
     </div>
     <div id="food-box2">
         <!-- For each Assorti display box with contents -->
-        {% for food in foods2 %}
+        {% for food in shashlik_on_coal %}
         <div id="food-card">
             <h1 id="food-name">{{ food.Name }}</h1>
             <div id="food-description-box">
@@ -63,13 +63,13 @@
     </div>
     {% endif %}
     <!-- Miasnoi assorti box -->
-    {% if foods3|length > 0 %}
+    {% if assortments|length > 0 %}
     <div id="food-section-holder3">
         <h1 id="food-section3">Ассорти</h1>
     </div>
     <div id="food-box3">
         <!-- For each Miasnoi assorti display box with contents -->
-        {% for food in foods3 %}
+        {% for food in assortments %}
         <div id="food-card">
             <h1 id="food-name">{{ food.Name }}</h1>
             <div id="food-description-box">
@@ -83,13 +83,13 @@
     </div>
     {% endif %}
     <!-- Shawerma box -->
-    {% if foods4|length > 0 %}
+    {% if shawerma|length > 0 %}
     <div id="food-section-holder4">
         <h1 id="food-section4">Шаверма</h1>
     </div>
     <div id="food-box4">
         <!-- For each Shawerma display box with contents -->
-        {% for food in foods4 %}
+        {% for food in shawerma %}
         <div id="food-card">
             <h1 id="food-name">{{ food.Name }}</h1>
             <div id="food-description-box">

@@ -4,12 +4,32 @@ from django.core.mail import send_mail
 def retrieve_token(item):
     return item.partition("itemId")[2]
 
-def get_name(list_of_lists, item_id):
-    name = "None"
-    for i in list_of_lists:
-        if int(item_id) == i["itemId"]:
-            name = i["itemName"]
-    return name
+def get_item_name(items, item_id):
+    item_name = "None"
+    for item in items:
+        if int(item_id) == item["itemId"]:
+            item_name = item["itemName"]
+    return item_name
+
+def adjust_and_get_item_count(cookies, token, item_tracker, items_to_change):
+    counter = 1
+    if cookies["itemId" + token] in item_tracker:
+        for item in items_to_change:
+            if item["id"] == cookies["itemId" + token]:
+                counter = item["counter"]
+                del items_to_change[items_to_change.index(item)]
+                counter += 1
+                break
+    return counter
+
+def send_order_email(request, total_price, items):
+    if request.POST.get("order-delivery"):
+        send_email_with_delivery(request, items, total_price)
+        return True
+    elif request.POST.get("order-self"):
+        send_email_without_delivery(request, items, total_price)
+        return True
+    return False
 
 def send_email_without_delivery(request, items, total_price):
     emails = Emails.objects.all()[0]
@@ -19,7 +39,7 @@ def send_email_without_delivery(request, items, total_price):
         "Новый заказ!",
         f"Заказ без доставки от '{username}'"
         f"\n\nТелефон: {user_phone}"
-        f"\n\n{beautify(items)}"
+        f"\n\n{beautify_items(items)}"
         f"\n\nВсего: {total_price} руб",
         emails.Sender, [emails.Receiver], fail_silently=True
     )
@@ -34,20 +54,20 @@ def send_email_with_delivery(request, items, total_price):
         f"Заказ c доставкой от '{username}'"
         f"\n\nТелефон: {user_phone}"
         f"\n\nДоставка до '{user_place}'"
-        f"\n\n{beautify(items)}"
+        f"\n\n{beautify_items(items)}"
         f"\n\nВсего: "
         f"\nЗа продукты: {total_price} руб",
         emails.Sender, [emails.Receiver], fail_silently=True
     )
 
-def retrieve_list_item_id_and_item_name_of_each_item():
+def retrieve_list_of_item_id_and_item_name_of_each_item():
     return [{"itemName": x.Name, "itemId": x.itemId } for x in Shawerma.objects.all()]\
            + [{"itemName": x.Name, "itemId": x.itemId } for x in MiasnoiAssorti.objects.all()]\
            + [{"itemName": x.Name, "itemId": x.itemId } for x in Assorti.objects.all()]\
            + [{"itemName": x.Name, "itemId": x.itemId } for x in ShashlikNaUgliach.objects.all()]
 
-def set_dictionary_with_order(items):
-    list_of_items = list()
+def set_list_of_item_dictionaries_with_order(items):
+    dicts_of_items = list()
     counter = 0
     for item in items:
         set_of_items = {}
@@ -58,16 +78,16 @@ def set_dictionary_with_order(items):
         set_of_items.update({"Price": item.Price})
         set_of_items.update({"Price": item.Price})
         set_of_items.update({"image": item.image})
-        list_of_items.append(set_of_items)
+        dicts_of_items.append(set_of_items)
         if counter == 3: counter = 0
-    return list_of_items
+    return dicts_of_items
 
-def beautify(items):
+def beautify_items(items):
     initial = ""
-    for i in items:
+    for item in items:
         initial += f'-------' \
-                   f'\nПродукт: {i["name"]}' \
-                   f'\nЦена: {i["price"]} руб' \
-                   f'\nКоличество: {i["amount"]}' \
+                   f'\nПродукт: {item["name"]}' \
+                   f'\nЦена: {item["price"]} руб' \
+                   f'\nКоличество: {item["amount"]}' \
                    f'\n-------'
     return initial

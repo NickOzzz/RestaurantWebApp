@@ -3,88 +3,82 @@ from .models import ShashlikNaUgliach, Assorti, MiasnoiAssorti, Shawerma, Spacin
 from wannaShashApp import extensions
 
 #MainPage
-def mainView(request):
-    foods1 = MiasnoiAssorti.objects.all()
-    foods2 = ShashlikNaUgliach.objects.all()
-    foods3 = Assorti.objects.all()
-    foods4 = Shawerma.objects.all()
+def main_view(request):
+    meat_assortments = MiasnoiAssorti.objects.all()
+    shashlik_on_coal = ShashlikNaUgliach.objects.all()
+    assortments = Assorti.objects.all()
+    shawerma = Shawerma.objects.all()
+
     spacings = SpacingMainPage.objects.all()[0]
     costs = Costs.objects.all()[0]
-    foods1count = len(foods1)
-    foods2count = len(foods2)
-    foods3count = len(foods3)
-    foods4count = len(foods4)
-    return render(request, "main/mainPage.html", {"foods1": foods1,
-                                                  "foods2": foods2,
-                                                  "foods3": foods3,
-                                                  "foods4": foods4,
+
+    meat_assortments_count = len(meat_assortments)
+    shashlik_on_coal_count = len(shashlik_on_coal)
+    assortments_count = len(assortments)
+    shawerma_count = len(shawerma)
+    return render(request, "main/mainPage.html", {"meat_assortments": meat_assortments,
+                                                  "shashlik_on_coal": shashlik_on_coal,
+                                                  "assortments": assortments,
+                                                  "shawerma": shawerma,
                                                   "spacings": spacings,
                                                   "costs": costs,
-                                                  "foods1count": str(foods1count),
-                                                  "foods2count": str(foods2count),
-                                                  "foods3count": str(foods3count),
-                                                  "foods4count": str(foods4count)})
+                                                  "meat_assortments_count": str(meat_assortments_count),
+                                                  "shashlik_on_coal_count": str(shashlik_on_coal_count),
+                                                  "assortments_count": str(assortments_count),
+                                                  "shawerma_count": str(shawerma_count)})
 
 #CartPage
-def cartView(request):
+def cart_view(request):
     #List of each item's id and name
-    list_of_lists = extensions.retrieve_list_item_id_and_item_name_of_each_item()
+    item_ids_and_names = extensions.retrieve_list_of_item_id_and_item_name_of_each_item()
     #List of items to be rendered
-    list_of_items = list()
+    final_items = list()
     #List to track repeating items to merge them into one
-    tracker = list()
+    item_tracker = list()
 
-    items = request.COOKIES
+    cookie_items = request.COOKIES
     total_price = 0
 
     #Setting list of items
-    for item in items:
+    for cookie_item in cookie_items:
 
         #Set total price based on all of the items
-        if "itemPrice" in item:
-            token = item.partition("itemPrice")[2]
-            total_price += int(request.COOKIES["itemPrice" + token])
+        if "itemPrice" in cookie_item:
+            token = cookie_item.partition("itemPrice")[2]
+            total_price += int(cookie_items["itemPrice" + token])
 
         #Merge repeating items into one and retrieve token
-        counter = 1
-        if "itemId" in item:
-            temporary_token = extensions.retrieve_token(item)
-            if request.COOKIES["itemId" + temporary_token] in tracker:
-                for ite in list_of_items:
-                    if ite["id"] == request.COOKIES["itemId" + temporary_token]:
-                        counter = ite["counter"]
-                        del list_of_items[list_of_items.index(ite)]
-                        counter += 1
-                        break
+        if "itemId" in cookie_item:
+            token = extensions.retrieve_token(cookie_item)
+            counter = extensions.adjust_and_get_item_count(cookie_items, token, item_tracker, final_items)
 
             #Retrieve item id and add it to tracker
-            item_id = request.COOKIES["itemId" + temporary_token]
-            tracker.append(item_id)
+            item_id = cookie_items["itemId" + token]
+            item_tracker.append(item_id)
 
-            name = extensions.get_name(list_of_lists, item_id)
+            name = extensions.get_item_name(item_ids_and_names, item_id)
 
             #Set list of items from all
-            list_of_items.append({"itemName": name,
-                                  "itemDescription": request.COOKIES["itemDescription" + temporary_token],
-                                  "itemPrice": request.COOKIES["itemPrice" + temporary_token],
-                                  "imageUrl": request.COOKIES["imageUrl" + temporary_token],
+            final_items.append({"itemName": name,
+                                  "itemDescription": cookie_items["itemDescription" + token],
+                                  "itemPrice": cookie_items["itemPrice" + token],
+                                  "imageUrl": cookie_items["imageUrl" + token],
                                   "counter": counter,
                                   "id": item_id,
-                                  "token": temporary_token})
+                                  "token": token})
 
-    #If button is pressed in form with post method, send an email and redirect to success page
+    order_sent = False
+    #If button is pressed in form with post method, send a delivery email and redirect to success page
     if request.method == "POST":
-        items = []
-        for item in list_of_items:
-            items.append({"name": item["itemName"], "price": item["itemPrice"], "amount": item["counter"]})
-        if request.POST.get("order-delivery"):
-            extensions.send_email_with_delivery(request, items, total_price)
-            return redirect("/success/")
-        elif request.POST.get("order-self"):
-            extensions.send_email_without_delivery(request, items, total_price)
-            return redirect("/success/")
+        items_to_send = []
+        for item in final_items:
+            items_to_send.append({"name": item["itemName"], "price": item["itemPrice"], "amount": item["counter"]})
+        order_sent = extensions.send_order_email(request, total_price, items_to_send)
 
-    return render(request, "main/cartPage.html", {"list_of_items": list_of_items,
+    if order_sent:
+        return redirect("/success/")
+
+    return render(request, "main/cartPage.html", {"list_of_items": final_items,
                                                   "total_price": total_price})
 
 #SuccessPage

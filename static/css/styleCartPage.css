@@ -35,7 +35,7 @@ img {
 }
 #title-phone{
     top: 30%;
-    left: 43%;
+    left: 44%;
     font-size: 100%;
     position: absolute;
     cursor: pointer;
@@ -49,7 +49,7 @@ img {
 }
 #title-instlink{
     top: 30%;
-    left: 58%;
+    left: 62%;
     font-size: 100%;
     position: absolute;
     cursor: pointer;
@@ -360,7 +360,7 @@ top: 50%;
 }
 #title-instlink{
     top: 30%;
-    left: 46%;
+    left: 50%;
     font-size: 90%;
     position: absolute;
     cursor: pointer;
@@ -506,15 +506,15 @@ top: 50%;
 }
 @media screen and (max-width: 670px){
 #title-instagram{
-    top: 37%;
-    left: 81%;
+    top: 34%;
+    left: 70%;
     width: 3%;
     height: 14%;
     position: absolute;
 }
 #title-whatsapp{
     top: 58%;
-    left: 79%;
+    left: 70%;
     width: 3%;
     height: 16%;
     position: absolute;
@@ -549,7 +549,7 @@ top: 50%;
 }
 #title-phone{
     top: 54%;
-    left: 57%;
+    left: 53%;
     font-size: 48%;
     position: absolute;
     cursor: pointer;
